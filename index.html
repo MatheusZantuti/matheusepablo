@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Copa do Mundo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .correct {
+            background-color: green;
+            color: white;
+        }
+        .incorrect {
+            background-color: red;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz sobre a Copa do Mundo</h1>
+    
+    <div class="question" id="q1">
+        <p>1. Qual país venceu a primeira Copa do Mundo em 1930?</p>
+        <button onclick="checkAnswer(1, 'd')">a) Brasil</button>
+        <button onclick="checkAnswer(1, 'd')">b) Argentina</button>
+        <button onclick="checkAnswer(1, 'd')">c) Itália</button>
+        <button onclick="checkAnswer(1, 'd')">d) Uruguai</button>
+    </div>
+    
+    <div class="question" id="q2">
+        <p>2. Qual jogador é o maior artilheiro da história das Copas do Mundo até 2022?</p>
+        <button onclick="checkAnswer(2, 'c')">a) Pelé</button>
+        <button onclick="checkAnswer(2, 'c')">b) Cristiano Ronaldo</button>
+        <button onclick="checkAnswer(2, 'c')">c) Miroslav Klose</button>
+        <button onclick="checkAnswer(2, 'c')">d) Lionel Messi</button>
+    </div>
+    
+    <div class="question" id="q3">
+        <p>3. Em qual país foi realizada a Copa do Mundo de 2018?</p>
+        <button onclick="checkAnswer(3, 'c')">a) França</button>
+        <button onclick="checkAnswer(3, 'c')">b) Alemanha</button>
+        <button onclick="checkAnswer(3, 'c')">c) Rússia</button>
+        <button onclick="checkAnswer(3, 'c')">d) Brasil</button>
+    </div>
+    
+    <script>
+        function checkAnswer(questionNumber, correctAnswer) {
+            const buttons = document.querySelectorAll(`#q${questionNumber} button`);
+            buttons.forEach(button => {
+                if (button.textContent.includes(correctAnswer)) {
+                    button.classList.add('correct');
+                    document.body.style.backgroundColor = 'green';
+                } else {
+                    button.classList.add('incorrect');
+                    document.body.style.backgroundColor = 'red';
+                }
+                button.disabled = true;
+            });
+        }
+    </script>
+</body>
+</html>
